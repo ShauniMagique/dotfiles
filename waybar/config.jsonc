@@ -1,0 +1,104 @@
+{
+    "layer": "top",
+    "margin-top": 5,
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "tray",
+        "pulseaudio",
+        "bluetooth",
+        "network",
+        "custom/weather",
+        "custom/notification",
+        "custom/wlogout"
+    ],
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "on-click-window": "active"
+    },
+    "clock": {
+        "interval": 60,
+        "format": "{:%H:%M}",
+        "format-alt": "{:%d/%m/%Y}"
+    },
+    "tray": {
+        "spacing": 15
+    },
+    "pulseaudio": {
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-muted": "",
+        "format-icons": {
+            "default": [
+                "",
+                ""
+            ]
+        },
+        "scroll-step": 1,
+        "on-click": "pavucontrol",
+        "on-click-middle": "~/.config/mango/scripts/headphones.sh",
+        "on-click-right": "easyeffects"
+    },
+    "bluetooth": {
+        // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+        "format": "󰂲",
+        "format-on": "", // an empty format will hide the module
+        "format-connected": "󰂱",
+        "on-click": "blueberry",
+        "on-click-right": "~/.config/waybar/scripts/bluetooth.sh"
+    },
+    "network": {
+        "interface": "wlo1",
+        "format-wifi": "󰤨",
+        "format-disconnected": "󰤫", // Shows when Wi‑Fi is on but no network
+        "format-disabled": "󰤮", // Shows when Wi‑Fi radio is off
+        "format-ethernet": "",
+        "on-click": "nm-connection-editor",
+        "on-click-right": "~/.config/waybar/scripts/wifi.sh",
+        "tooltip": true, // Shows SSID and signal % on hover
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+        "tooltip-format-disconnected": "Disconnected",
+        "tooltip-format-disabled": "Wi‑Fi Disabled",
+        "format-icons": [
+            "󰤯", // 0–25% strength
+            "󰤟", // 25–50%
+            "󰤢", // 50–75%
+            "󰤥", // 75–100%
+            "󰤨" // 100% (full)
+        ]
+    },
+    "custom/weather": {
+        "class": "weather",
+        "exec": "curl -s 'wttr.in/Vitry-sur-Seine?format=%c%t'",
+        "format": "{}",
+        "interval": 900
+    },
+    "custom/notification": {
+        "tooltip": true,
+        "format": "<span size='16pt'>{icon}</span>",
+        "format-icons": {
+            "notification": "󱅫",
+            "none": "󰂜",
+            "dnd-notification": "󰂠",
+            "dnd-none": "󰪓",
+            "inhibited-notification": "󰂛",
+            "inhibited-none": "󰪑",
+            "dnd-inhibited-notification": "󰂛",
+            "dnd-inhibited-none": "󰪑"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+    "custom/wlogout": {
+        "on-click": "/home/shauni/.config/rofi/powermenu/type-2/powermenu.sh",
+        "format": "⏻"
+    }
+}

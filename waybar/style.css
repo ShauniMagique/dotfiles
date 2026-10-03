@@ -1,0 +1,110 @@
+@import 'colors/gruvboxmaterial.css';
+
+* {
+    border: none;
+    border-radius: 0px;
+
+    font-family: "JetBrainsMono Nerd Font Propo";
+    font-size: 13px;
+
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+tooltip {
+    background: @bg0;
+    border: 1px solid @bg3;
+}
+
+tooltip label {
+    color: @fg;
+    padding: 6px;
+}
+
+#workspaces {
+    background-color: @bg0;
+    padding: 5px 3px;
+    margin-left: 5px;
+    border: 1px solid @bg1;
+    color: @fg;
+}
+
+#workspaces button {
+    background: transparent;
+    background-image: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 0px 6px;
+    margin: 0px 3px;
+    transition: all 0.3s ease-in-out;
+    color: @fg;
+}
+
+#workspaces button.active {
+    background-color: @orange;
+    color: @bg0;
+    transition: all 0.3s ease-in-out;
+    font-size: 13px;
+}
+
+#workspaces button:hover {
+    background-color: @yellow;
+    color: @bg0;
+}
+
+#workspaces button.urgent {
+    background-color: @red;
+    color: @bg0;
+    background-size: 400% 400%;
+    transition: all 0.3s ease-in-out;
+}
+
+#clock,
+#tray,
+#pulseaudio,
+#bluetooth,
+#network,
+#custom-weather,
+#custom-notification,
+#custom-wlogout {
+    background-color: @bg0;
+    padding: 0 15px 0 15px;
+    margin-left: 12px;
+    border: 1px solid @bg1;
+}
+
+#clock {
+    color: @fg;
+    font-size: 15px;
+}
+
+#pulseaudio {
+    color: @purple;
+}
+
+#bluetooth {
+    color: @blue;
+}
+
+#network {
+    color: @yellow;
+}
+
+#custom-weather {
+    color: @fg;
+}
+
+#custom-notification {
+    color: @green;
+}
+
+#custom-wlogout {
+    margin-right: 5px;
+    color: @red;
+}
